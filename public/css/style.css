@@ -1,0 +1,49 @@
+p{
+    font-family: Verdana, sans-serif;
+}
+body{
+    background: url("../img/dinerbg.jpg") no-repeat center center fixed ;
+    background-size: cover;
+    font-family: "Comic", sans-serif;
+}
+.maindiv{
+    min-width: min-content;
+    max-width: min-content;
+    font-size: 15pt;
+}
+.selectordiv{
+    background-color: darkslategrey;
+    color: white;
+    padding-left: 1%;
+    padding-right: 1%;
+    min-width: min-content;
+    border-radius: 12px;
+}
+/* Div för personlig info */
+.persinfodiv{
+    background-color: #62655c;
+    color: #E7EAE0;
+    background: ;
+    padding: 1%;
+    border-radius: 12px;
+
+}
+
+footer{
+    position: bottom;
+    background-color: black;
+    color: white;
+}
+
+#allergy{
+    font-weight: bold;
+}
+
+#allergy:hover{
+    color: red;
+    cursor: none;
+}
+
+button{
+    cursor: pointer;
+}

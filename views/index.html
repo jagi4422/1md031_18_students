@@ -1,9 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DELI-VERY</title>
+        <title>SeemsGood</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <h1>Hello World!!!</h1>
+        <main>
+        <h1 class="bakgrund ">Välkommen till OnlineBurger.se</h1>
+        
+        <div class="maindiv">
+            
+            <div class="selectordiv">
+                <h1>Please select burger</h1>
+                <table>
+                    <thead>
+                        <th>The Cheezy Cheese</th>
+                        <th>The Devils Bite</th>
+                        <th>A Simple Burger</th>
+                    </thead>
+                    <tbody>
+                        <tc>
+                            <td height = 200><img src="/img/product_delivery-cheezy-burger.png" alt="A cheezy burger!" height = 200>
+                            
+                                <ul>
+                                    <li>Innehåller Kött</li>
+                                    <li>Innehåller <span id="allergy">Gluten</span></li>
+                                    <li>Innehåller Ost</li>
+                                    <li> 270 kcals</li>
+                                </ul>  
+                            </td>                          
+                        </tc>
+                        <tc>
+                            <td height = 200><img src="/img/hot-n-spicy-burger_3252.jpg" alt="The Devils Bite"  height = 200>
+                            
+                                <ul>
+                                    <li>Innehåller Kött</li>
+                                    <li>Innehåller <span id="allergy">Gluten</span></li>
+                                    <li>Innehåller <span id="allergy">Inälvor</span></li>
+                                    <li> 1100 kcals</li>
+                                </ul>  
+                            </td>    
+                        </tc>
+                        <tc>
+                            <td height = 200><img src="/img/simpleburger.jpg" alt="Simple Burger" height=200>
+                            
+                                <ul>
+                                    <li>Innehåller Kött</li>
+                                    <li>Innehåller <span id="allergy">Ost</span></li>
+                                    <li>Innehåller <span id="allergy">Skaldjur</span></li>
+                                    <li> 666 kcals</li>
+                                </ul>  
+                            </td>    
+                        </tc>
+                    </tbody>
+                </table>
+            </div>
+            <div class="persinfodiv">
+            <h1>Customer Information:</h1>
+            <p>This is where you provide necessary information</p>
+            <p>
+                <label for="firstname">First</label><br>
+                <input type="text" id="firstname" name="fn" required="required" placeholder="First name">
+            </p>
+            <p>
+                <label for="lastname">Last</label><br>
+                <input type="text" id="lastname" name="ln" placeholder="Last name">
+            </p>
+            <p>
+                <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+            </p>
+            <p>
+                <label for="recipient">Gender</label><br>
+                <select id="recipient" name="rcp">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Non-binary</option>
+                    <option>Do not disclose</option>
+                </select>
+            </p>
+            <button type="submit"> Send Info</button> 
+        </div>            
+        </div>
+        <footer>
+            <hr>
+            <p>
+                THIS SITE BELONGS TO SATAN AND ALL HIS ADVISORS
+            </p>
+        </footer>
+    </main>
     </body>
 </html>
