@@ -45,8 +45,8 @@ function returnBurgerSelection(){
     return selectedBurgers;
 }
 
-function outputOrder(order,details){ 
-    document.getElementById("orderP").innerHTML = "Recipients name: "+order.name+"<br><br>Recipient e-mail: "+order.email+"<br><br>Recipient Payment method: "+order.payment+"<br><br>Recipient Coords (x,y):"+details.x+", "+details.y+"<br><br>Recipient gender: "+order.gender+"<br><br>Ordered burgers: "+order.burger;
+function outputOrder(order,details,burgers){ 
+    document.getElementById("orderP").innerHTML = "Recipients name: "+order.name+"<br><br>Recipient e-mail: "+order.email+"<br><br>Recipient Payment method: "+order.payment+"<br><br>Recipient Coords (x,y):"+details.x+", "+details.y+"<br><br>Recipient gender: "+order.gender+"<br><br>Ordered burgers: "+burgers.join(", ");
 }
 
 //Function to create the menu of burgers

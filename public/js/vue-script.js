@@ -56,14 +56,16 @@ var vm = new Vue({
 
         customerInfo: {},
       };
-
+      
       this.ordersList = [newOrder];
+      console.log(this.ordersList[0].details)
 
     },
 
 
     buttonClicked: function () {
-      outputOrder(new Customer("name", "email", "gender", "payment"), this.ordersList[0].details);
+      console.log(this.ordersList[0].details)
+      outputOrder(new Customer("name", "email", "gender", "payment"), this.ordersList[0].details, returnBurgerSelection());
       this.addOrder();
     },
   }
