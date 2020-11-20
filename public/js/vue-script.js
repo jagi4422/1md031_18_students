@@ -9,9 +9,11 @@ var vm = new Vue({
     ordersList: {},
   },  
 
-  socket.on('currentQueue', function (data) {
-    this.orders = data.orders;
-  }.bind(this));
+  created: function () {
+    socket.on('initialize', function (data) {
+      this.orders = data.orders;
+    }.bind(this));
+  },
 
   methods: {
     getNext: function () {
