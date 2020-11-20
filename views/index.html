@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/deli-very.css">
     <script type="text/javascript" src="/socket.io/socket.io.js" defer></script>
-    <script type="text/javascript" src="https://vuejs.org/js/vue.js" ></script>
+    <script type="text/javascript" src="https://vuejs.org/js/vue.js"></script>
     <script type="text/javascript" src="js/menu.js" defer></script>
     <script type="text/javascript" src="js/js-script.js" defer></script>
     <script type="text/javascript" src="js/vue-script.js" defer></script>
@@ -21,7 +21,7 @@
         <h1 class="mainheader ">Welcome to OnlineBurger.se</h1>
         <div class="selectordiv">
             <h1 class="header">Please select burger</h1>
-            
+
             <div class="selectWrapper" id="mainSelect">
 
             </div>
@@ -41,7 +41,7 @@
                 -->
 
                 <p>Please provide your personal information</p>
-        
+
                 <p>
                     <label for="name">Full name</label><br>
                     <input type="text" id="name" name="na" required placeholder="First and Last name">
@@ -54,14 +54,13 @@
 
                 <div class="view-box">
                     <div id="dots" v-on:click="displayOrder">
-                        <div 
-                          v-for="order in ordersList"
-                          v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                        <div v-for="order in ordersList"
+                            v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
                             T
                         </div>
                     </div>
-                  </div>
-       
+                </div>
+
                 <p>
                     <label for="payment">Payment method</label><br>
                     <select id="payment" required>
@@ -76,15 +75,15 @@
                         <label>Gender</label><br>
                         <input type="radio" id="male" name="gender" required value="Male">
                         <label for="male">Male</label><br>
-        
+
                         <input type="radio" id="female" name="gender" required value="Female">
                         <label for="female">Female</label><br>
-        
+
                         <input type="radio" id="undisclosed" name="gender" required value="Undisclosed"
                             checked="checked">
                         <label for="undisclosed">Undisclosed</label><br>
                     </p>
-                </form> 
+                </form>
                 <div id="submitOrder">
                     <button type="submit" v-on:click="buttonClicked" id="sendButton"> Send Info</button>
                 </div>
