@@ -23,20 +23,21 @@ var vm = new Vue({
       return lastOrder + 1;
     },
 
+    // The function that adds an order when the'Place Order' button is pressed.
     addOrder: function () {
-
       this.ordersList[0].orderId = this.getNext();
       this.ordersList[0].orderItems = returnBurgerSelection();
       this.ordersList[0].customerInfo = returnOrderInfo();
 
-      console.log(this.ordersList[0].orderItems);
-      console.log(this.ordersList[0].orderId);
-      console.log(this.ordersList[0]);
+      //console.log(this.ordersList[0].orderItems);
+      //console.log(this.ordersList[0].orderId);
+      //console.log(this.ordersList[0]);
 
       socket.emit("addOrder", this.ordersList[0]);
-      console.log("efter")
+      //console.log("efter")
     },
-
+    //the function that creates the object that will be sent to the server but also 
+    //collects the coordinates for the object. 
     displayOrder: function (event) {
       var offset = {
         x: event.currentTarget.getBoundingClientRect().left,
@@ -64,7 +65,7 @@ var vm = new Vue({
 
 
     buttonClicked: function () {
-      console.log(this.ordersList[0].details)
+      //console.log(this.ordersList[0].details)
       outputOrder(new Customer("name", "email", "gender", "payment"), this.ordersList[0].details, returnBurgerSelection());
       this.addOrder();
     },
