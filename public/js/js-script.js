@@ -1,22 +1,20 @@
-function Customer(na, st, nu, em) {
-    this.name = na;     // The this keyword refers to the object itself
-    this.street = st;
-    this.number = nu;
-    this.email = em;
+function Customer(na,em,ge,pa) {
+    this.name = document.getElementById(na).value;  
+    this.email = document.getElementById(em).value;
 
-    this.gename = function () {
-        return this.name
-    };
-    this.address = function () {
-        return this.street + " " + this.number;
-    };
-    this.geemail = function () {
-        return this.email;
-    };
+    var genders = document.getElementsByName(ge);
+    for (gender of genders) {
+        if (gender.checked) {
+            this.gender = gender.value;
+            break;
+        }
+    }
+
+    this.payment = document.getElementById(pa).value;
 }
 
 function returnOrderInfo() {
-    var order = {name: "", email: "", gender: "", payment: "", burger: ""};
+    var order = {name: "", email: "", gender: "", payment: ""};
     order.name = document.getElementById('name').value;
     order.email = document.getElementById('email').value;
 
@@ -31,23 +29,27 @@ function returnOrderInfo() {
 
     order.payment = document.getElementById('payment').value;
     
-    var burgers = document.getElementsByName('burgerOrder');
-
-    for (burger of burgers){
-        if(burger.checked){
-            order.burger += burger.value+", ";
-        }
-    }
 
     return order;
 }
 
-function outputOrder(order){ 
-    document.getElementById("orderP").innerHTML = "Recipients name: "+order.name+"<br><br>Recipient e-mail: "+order.email+"<br><br>Recipient Payment method: "+order.payment+"<br><br>Recipient gender: "+order.gender+"<br><br>Ordered burgers: "+order.burger;
-    
+function returnBurgerSelection(){
+    var selectedBurgers = [];
+    var burgers = document.getElementsByName('burgerOrder');
+
+    for (burger of burgers){
+        if(burger.checked){
+            selectedBurgers.push(burger.value);
+        }
+    }
+    return selectedBurgers;
 }
 
+function outputOrder(order,details){ 
+    document.getElementById("orderP").innerHTML = "Recipients name: "+order.name+"<br><br>Recipient e-mail: "+order.email+"<br><br>Recipient Payment method: "+order.payment+"<br><br>Recipient Coords (x,y):"+details.x+", "+details.y+"<br><br>Recipient gender: "+order.gender+"<br><br>Ordered burgers: "+order.burger;
+}
 
+//Function to create the menu of burgers
 function createMenu(food) {
     var myElement = document.getElementById("mainSelect");
     

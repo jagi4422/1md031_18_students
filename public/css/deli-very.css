@@ -6,6 +6,8 @@
 	border: 1px solid rgba(0,0,0,0.4);
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
+/*I shrunk the map so the receiving dispatcher needs to 
+use the same css file*/
 #dots {
 	font-size: 0.7em;
 	position: relative;
@@ -37,4 +39,9 @@
 	color:black;
 	background: rgba(255,255,255, 0.5);
 	padding: 1em;
+}
+
+#customerInfo{
+	font-size: 0.9em;
+	font-style: italic;
 }

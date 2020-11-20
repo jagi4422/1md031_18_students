@@ -2,20 +2,16 @@ var socket = io();
 
 var vm = new Vue({
   el: '#infodiv',
+
   data: {
     burgers: food,
-
     orders: {},
-  },
-  created: function () {
-    socket.on('initialize', function (data) {
-      this.orders = data.orders;
-    }.bind(this));
+    ordersList: {},
+  },  
 
-    socket.on('currentQueue', function (data) {
-      this.orders = data.orders;
-    }.bind(this));
-  },
+  socket.on('currentQueue', function (data) {
+    this.orders = data.orders;
+  }.bind(this));
 
   methods: {
     getNext: function () {
@@ -24,43 +20,47 @@ var vm = new Vue({
       }, 0);
       return lastOrder + 1;
     },
-    addOrder: function (event) {
-      var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                    y: event.currentTarget.getBoundingClientRect().top};
-      var newOrder = {
-        orderId: this.getNext(),
-        details: {
-          x: event.clientX - 10 - offset.x,
-          y: event.clientY - 10 - offset.y
-        },
-        orderItems: ["Beans", "Curry"]
-      };
+
+    addOrder: function () {
       
-      socket.emit("addOrder", newOrder);
+      this.ordersList[0].orderId = this.getNext();
+      this.ordersList[0].orderItems = returnBurgerSelection();
+      this.ordersList[0].customerInfo = returnOrderInfo();
+      
+      console.log(this.ordersList[0].orderItems);
+      console.log(this.ordersList[0].orderId);
+      console.log(this.ordersList[0]);
 
+      socket.emit("addOrder",this.ordersList[0]);
+      console.log("efter")
     },
-
-
-/*
+    
     displayOrder: function (event) {
       var offset = {x: event.currentTarget.getBoundingClientRect().left,
         y: event.currentTarget.getBoundingClientRect().top};
       
       var newOrder = {
-        target : 'T',
+        
+        orderId: undefined,
+        
         details: {
         x: event.clientX - 10 - offset.x,
         y: event.clientY - 10 - offset.y
-        }
+        },
+
+        orderItems:[],
+
+        customerInfo:{},
         };
 
-        orders.push(newOrder);
-        console.log("kommer in här");
-        console.log(newOrder);
+        this.ordersList = [newOrder];
 
-    },*/
+    },
+
+
     buttonClicked: function(){
-      outputOrder(returnOrderInfo());      
+      outputOrder(new Customer("name","email","gender","payment"), this.ordersList[0].details);  
+      this.addOrder();    
     },
   }
 })

@@ -31,6 +31,7 @@
         <div class="persInfoDiv">
             <div class="persInfoInput" id="infodiv">
                 <h1>Customer Information:</h1>
+
                 <!--
                 <div id="testdiv">
                     <div v-for="burger in burgers">
@@ -38,6 +39,7 @@
                     </div>
                 </div>
                 -->
+
                 <p>Please provide your personal information</p>
         
                 <p>
@@ -51,18 +53,18 @@
                 </p>
 
                 <div class="view-box">
-                    <div id="dots" v-on:click="addOrder">
+                    <div id="dots" v-on:click="displayOrder">
                         <div 
-                          v-for="(order,key) in orders"
+                          v-for="order in ordersList"
                           v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-                          {{ key }}
+                            T
                         </div>
                     </div>
                   </div>
        
                 <p>
                     <label for="payment">Payment method</label><br>
-                    <select id="payment" name="rcp" required>
+                    <select id="payment" required>
                         <option>Credit</option>
                         <option>Debit</option>
                         <option>Pay-Pal</option>
@@ -84,7 +86,7 @@
                     </p>
                 </form> 
                 <div id="submitOrder">
-                    <button type="submit" v-on:click="buttonClicked()" id="sendButton"> Send Info</button>
+                    <button type="submit" v-on:click="buttonClicked" id="sendButton"> Send Info</button>
                 </div>
             </div>
             <div id="persInfoOutput">
