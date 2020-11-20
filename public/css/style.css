@@ -2,37 +2,141 @@ p{
     font-family: Verdana, sans-serif;
 }
 body{
-    background: url("../img/dinerbg.jpg") no-repeat center center fixed ;
+    background: url("../img/dinerbg.jpg") no-repeat center center;
     background-size: cover;
-    font-family: "Comic", sans-serif;
+    font-family: "Verdana", sans-serif;
+    margin: 0;
 }
-.maindiv{
-    min-width: min-content;
-    max-width: min-content;
+.mainheader{
+    grid-area: head;
+    background: #cc2929;
+    text-align: center;
+    font-size: 40pt;
+    color:white;
+    border-radius: 12px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin: 1%;
+}
+main{
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+    ". head . "
+    ". selectordiv ."
+    ". custominfo ."
+    "footer footer footer";
     font-size: 15pt;
 }
+
 .selectordiv{
-    background-color: darkslategrey;
+    margin: 1%;
+    background-color: #cc2929;
     color: white;
     padding-left: 1%;
     padding-right: 1%;
-    min-width: min-content;
     border-radius: 12px;
+    grid-area: selectordiv;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto min-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    grid-template-areas: 
+    "header header header"
+    "selectwrapper selectwrapper selectwrapper";
+
 }
+div.selectWrapper{
+    display: grid;
+    grid-area: selectwrapper;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    row-gap: 20px;
+}
+div.select{
+    color: black;
+    border-radius: 12px;
+    background-color: white;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    align-self: auto;
+    grid-template-areas:
+    "burgername"
+    "picture"
+    "contents"
+    "checkbox";
+}
+
+
 /* Div för personlig info */
-.persinfodiv{
-    background-color: #62655c;
+.persInfoDiv{
+    display: grid;
+    grid-area: custominfo;
+    margin: 1%;
+    background-color:gray;
     color: #E7EAE0;
-    background: ;
+    
     padding: 1%;
     border-radius: 12px;
+    grid-template-areas: 
+    "infoInput"
+    "infoOutput";
+    grid-template-rows: auto auto;
+}
 
+div.persInfoInput{
+    grid-area: infoInput;
+}
+
+div.perInfoOutput{
+    grid-area: infoOutput;
+}
+
+h1.header{
+    text-align: center;
+    grid-area: header;
+    margin-top: 0;
+}
+.contents{
+    align-content: center;
+    grid-area: contents;
+    margin: inherit;
+}
+
+p.burgername{
+    align-content: center;
+    grid-area: burgername;
+    margin: inherit;
+    padding: 1%;
+}
+
+.burgerpicture{
+    width: 300px;
+    align-content: center;
+    grid-area: picture;
+    margin: inherit;
+}
+
+input.burgerCheckbox{
+    height: min-content;
+    grid-area: checkbox;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 footer{
-    position: bottom;
+    grid-area: footer;
     background-color: black;
     color: white;
+}
+
+#orderP{
+    height: fit-content;
 }
 
 #allergy{
@@ -41,9 +145,22 @@ footer{
 
 #allergy:hover{
     color: red;
-    cursor: none;
 }
 
 button{
     cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    div.selectwrapper {
+        grid-template-columns: auto;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    div.persInfoDiv {
+        grid-template-columns: auto;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+        "infoInput"
+        "infoOutput";
+    }
 }
